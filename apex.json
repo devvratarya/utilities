@@ -1,0 +1,238 @@
+{
+/*
+	// Place your snippets for Apex here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+	"system_debugg": 
+	{
+		"prefix": "sd",
+		"body": [
+			"System.debug('$1');",
+		],
+		"description": "system debug"
+	},
+	"forLoop": 
+	{
+		"prefix": "itr",
+		"body": [
+			"for (${2:Object} ${3:var} : ${1:}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "for loop"
+	},
+	"For_Loop_index": {
+        "prefix": "itri",
+        "body": [
+            "for (Integer ${1:index} = 0; ${1:index} < ${2:array}.size(); ${1:index}++) {",
+            "\tvar ${3:element} = ${2:array}[${1:index}];",
+            "\t$0",
+            "}"
+        ],
+        "description": "For Loop iterator"
+	},
+	"if": {
+        "prefix": "if",
+        "body": [
+			"if ($1) {",
+			"\t$0",
+			"}"
+        ],
+        "description": "if block"
+	},
+	"ifelse": {
+        "prefix": "ife",
+        "body": [
+			"if ($1) {",
+			"\t$0",
+			"} else {",
+			"\t",	
+			"}"
+        ],
+        "description": "if else"
+	},
+	"ifnull": {
+        "prefix": "ifn",
+        "body": [
+			"if (${1:var} == null) {",
+			"\t$0",
+			"}"
+        ],
+        "description": "if null"
+	},
+	"ifnullelse": {
+        "prefix": "ifen",
+        "body": [
+			"if (${1:var} == null) {",
+			"\t$0",
+			"} else {",
+			"\t",	
+			"}"
+        ],
+        "description": "if null else"
+	},
+	"instance of": {
+        "prefix": "inst",
+        "body": [
+			"if (${1:EXPR} instanceof ${2:TYPE}) {",
+			"\t${2:TYPE} ${3:VAR} = (${2:TYPE}) ${1:EXPR};",
+			"\t$0",
+			"}"
+        ],
+        "description": "Checks object type with instanceof and down-casts it"
+	},
+	"iterate map": {
+        "prefix": "itme",
+        "body": [
+			"for (${2:Object} ${3:var} : ${1:MAP_TYPE}.keySet()) {",
+			"\t${4:Object} ${5:var} = ${1:MAP_TYPE}.get(${3:var});",
+			"\t$0",
+			"}"
+        ],
+        "description": "Iterate key/value pairs of a Map"
+	},
+	"new list": {
+        "prefix": "nl",
+        "body": [
+			"List<${1:Object}> ${2:var} = new List<${1:Object}>();"
+        ],
+        "description": "initialise new list"
+	},
+	"new map": {
+        "prefix": "nm",
+        "body": [
+			"Map<${1:Key_type}, ${2:Value_type}> ${3:var} = new Map<${1:Key_type}, ${2:Value_type}>();"
+        ],
+        "description": "initialise new map"
+	},
+	"new set": {
+        "prefix": "ns",
+        "body": [
+			"Set<${1:Object}> ${2:var} = new Set<${1:Object}>();"
+        ],
+        "description": "initialise new set"
+	},
+	"property read only": {
+        "prefix": "pro",
+        "body": [
+			"{ get; private set; }$0"
+        ],
+        "description": "Read-only property getter and setter"
+	},
+	"property read write": {
+        "prefix": "prw",
+        "body": [
+			"{ get; set; }$0"
+        ],
+        "description": "Read / write property getter and setter"
+	},
+	"public static final ": {
+        "prefix": "psf",
+        "body": [
+			"public static final $0"
+        ],
+        "description": "public static final "
+	},
+	"public static final Integer ": {
+        "prefix": "psfi",
+        "body": [
+			"public static final Integer $0"
+        ],
+        "description": "public static final Integer  "
+	},
+	"public static final String ": {
+        "prefix": "psfs",
+        "body": [
+			"public static final String $0"
+        ],
+        "description": "public static final String  "
+	},
+	"Select stmt ": {
+        "prefix": "sel",
+        "body": [
+			"SELECT ${2:FIELDS}$0 FROM ${1:sObject}"
+        ],
+        "description": "Select query"
+	},
+	"Select stmt Apex ": {
+        "prefix": "sq",
+        "body": [
+			"[SELECT ${2:FIELDS}$0 FROM ${1:sObject}];"
+        ],
+        "description": "Select query in Apex"
+	},
+	"Select batch iterate ": {
+        "prefix": "sqbit",
+        "body": [
+			"for (List<${2:TYPE}> ${3:LISTVAR} : [SELECT ${5:Id} $0 FROM ${1:SOBJECT}]) {",
+			"\tfor ($2:TYPE} ${4:VAR} : $3:LISTVAR}) {",
+			"\t\t",		
+			"\t}",
+			"}"
+        ],
+        "description": "Batch iterate SOQL query results"
+	},
+	"Select  iterate ": {
+        "prefix": "sqit",
+        "body": [
+			"for (List<${2:TYPE}> ${3:LISTVAR} : [SELECT ${4:Id} $0 FROM ${1:SOBJECT}]) {",		
+			"\t}",
+			"}"
+        ],
+        "description": "iterate SOQL query results"
+	},
+	"query to map ": {
+        "prefix": "sqm",
+        "body": [
+			"Map<Id, ${2:TYPE}> ${3:VAR} = new Map<Id, ${2:TYPE}>([SELECT Id,${4}$0 FROM ${1:SOBJECT}]);"
+        ],
+        "description": "SOQL query assignment to Map variable"
+	},
+	"query to list": {
+        "prefix": "sql",
+        "body": [
+			"List<${2:TYPE}> ${3:VAR} = [SELECT ${4:Id}$0 FROM $SOBJECT$];"
+        ],
+        "description": "SOQL query assignment to List variable"
+	},
+	"SQL result list to single item": {
+        "prefix": "sql1",
+        "body": [
+			"List<${2:TYPE}> ${3:VAR} = [SELECT ${4:Id}$0 FROM ${1:SOBJECT} LIMIT 1];",
+			"${2:TYPE} ${5:VAR} = (${3:VAR}.size() == 1) ? ${3:VAR}.get(0) : null;",
+			"$0"
+        ],
+        "description": "SOQL query assignment to List variable"
+	},
+	"system run as": {
+        "prefix": "sra",
+        "body": [
+			"System.runAs(${1:User}) {",
+			"\t$0",
+			"}"
+        ],
+        "description": "system sun as user"
+	},
+	"while": {
+        "prefix": "wh",
+        "body": [
+			"while(${1:Exp}) {",
+			"\t$0",
+			"}"
+        ],
+        "description": "while loop"
+	},
+	
+	
+}
