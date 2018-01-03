@@ -1,0 +1,24 @@
+Profile p = [SELECT Id FROM Profile WHERE Name = 'System Administrator'];
+User runasUser = new User(alias = 'sysadmin',
+        email = 'devvrat@devvrat.com',
+        LastName = 'admin',
+        Username = 'system@testing.com',
+        emailencodingkey = 'UTF-8',
+        languagelocalekey = 'en_US',
+        localesidkey = 'en_US',
+        profileid = p.Id,
+        country = 'United States',
+        IsActive = true,
+        timezonesidkey = 'America/Los_Angeles');
+insert runasUser;
+
+List<Id> profileIds = new List<Id>
+{
+        '00e2400000557', '00e2400000557', '00e2400000557', '00e2400000557', '00e2400000557'
+}
+
+String[] emailFilters = new String[]
+{
+  'example.com','sample.com'
+};
+
