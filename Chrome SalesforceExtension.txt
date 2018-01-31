@@ -1,0 +1,9 @@
+Salesforce Navigator
+Salesforce Dev Tools
+S1 Demo
+Salesforce inspector
+Quickly Login as another user
+Salesforce.com Enhanced formulae editor
+Salesforce advanced code searcher
+Salesforce change set turbo
+Salesforce lightning inspector
