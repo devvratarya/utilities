@@ -7,3 +7,8 @@ Salesforce.com Enhanced formulae editor
 Salesforce advanced code searcher
 Salesforce change set turbo
 Salesforce lightning inspector
+Salesforce.com ID Clipper
+Quick Salesforce Setup
+Salesforce Lightning Restyler
+Better Salesforce formula editor
+Salesforce Id Paster
