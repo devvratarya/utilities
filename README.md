@@ -10,6 +10,37 @@ OOPS concept in APEX
   Relationships in Apex
 Data structures in APEX
 
+
+Lesson 3: Data Management
+ Data Management in Salesforce
+ Exporting Data
+
+Lesson 4: Introduction to Apex
+ Apex
+ Apex Development Process
+ Apex Development Tools
+ Apex Governor Limits 
+
+Lesson 5: Data Types and Logic Control in Apex
+ Data Types
+ Primitive Data Types
+ sObject Data Types
+ Enum Data Types
+ Collections Data Types
+ Operators
+ Logic Control Statements 
+
+Lesson 6: Apex Classes
+ Classes
+ Apex Class Variables and Methods 
+ Access Modifiers
+ Class Constructors
+ The ‘this’ Keyword
+ Inheritance
+ Sharing
+ Interface
+ System Classes and Methods 
+
 Lesson 8: SOQL and SOSL Queries
  Salesforce Object Query Language (SOQL)
  SOQL Functions
