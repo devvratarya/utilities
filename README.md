@@ -149,3 +149,7 @@ Lesson 17: Lightning Component Framework
 1. Seperation of concerns
 2. Service Layer
 3. Domain layer pattern
+version control
+IDE Visual Studio
+Org structure (classic and sfdx)
+
