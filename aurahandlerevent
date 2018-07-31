@@ -1,0 +1,23 @@
+aura:waiting
+<aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+
+aura:valueInit
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+aura:valueDestroy
+<aura:handler name="destroy" value="{!this}" action="{!c.handleDestroy}"/>
+
+aura:valueChange
+<aura:handler name="change" value="{!v.items}" action="{!c.itemsChange}"/>
+
+aura:systemError
+<aura:handler event="aura:systemError" action="{!c.handleError}"/>
+
+aura:locationChange
+<aura:handler event="aura:locationChange" action="{!c.update}"/>
+
+aura:doneWaiting
+<aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+
+aura:doneRendering
+<aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
