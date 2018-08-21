@@ -21,4 +21,22 @@ String[] emailFilters = new String[]
 {
   'example.com','sample.com'
 };
+----------------
+Component Controllers can they inherit from parent?
+I'm not sure if it's best practice or not, but you can pass the page controller into a component as an attribute.  I've done this with extensions, controllers will work the same.  Some snippets of what I've done to accomplish this are below.  In the component controller, I'm then able to access variables and methods from the page controller. --Platy IT
+Component controller, defining the variable to hold the page extension:
+public extRequirementTemplate extRT {get;set;}
 
+Component, attribute to pass that extension from the page to the component:
+<apex:attribute name="extRT" assignTo="{!extRT}" description="" type="extRequirementTemplate" required="false"></apex:attribute>
+
+Page controller, define a variable for the controller itself:
+public extRequirementTemplate extRT {get;set;}
+
+public extRequirementTemplate(ApexPages.StandardController controller) {
+    extRT = this;
+}
+
+In the page, pass that variable into the custom component:
+<c:RequirementGroup extRT="{!extRT}"/>
+---------------------
