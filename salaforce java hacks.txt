@@ -1,0 +1,35 @@
+From my observations, Locker Service adds getter/setter functions to your objects (according to what level of access you should have to them i.e. no setter if you shouldn't be able to write the field). So, the problem in your code might be that you're picking up those new functions in your for loop.
+
+You could try this:
+
+for (var key in theSpaces ) {
+  var value = theSpaces[key];
+  if(typeof value != 'function') {
+    spcs.push({value:value, key:key});
+  }
+}
+
+-------
+
+Get values in array in js
+const quoteTextComponentsList = quoteTexts.map(text => text.quoteText);
+action.setParams(
+    {
+        "quotetextsComponentsString": JSON.stringify(quoteTextComponentsList)
+    }
+);
+------------
+
+action call back
+
+action.setCallback(this, function(actionResult) {
+    component.set('v.saveMessage', actionResult.getReturnValue());
+    console.log(actionResult.getError()[0].message);
+
+});
+$A.enqueueAction(action);
+
+----------
+
+
+
