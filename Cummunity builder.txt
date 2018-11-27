@@ -1,0 +1,3 @@
+Self Registration > Register Page > Field Set from User > Picklist field remains as Text field. Bug from Salesforce.
+Page variations.
+Standard Page > Audience did not work
