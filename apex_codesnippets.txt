@@ -40,3 +40,39 @@ public extRequirementTemplate(ApexPages.StandardController controller) {
 In the page, pass that variable into the custom component:
 <c:RequirementGroup extRT="{!extRT}"/>
 ---------------------
+
+@isTest
+    static  void testQAIntCtrl_save() {
+        MultiStaticResourceCalloutMock qaMock = new MultiStaticResourceCalloutMock();
+        qaMock.setStaticResource('http://www.qa.de', 'TEST_QA_INIT_RESULT');
+        qaMock.setStaticResource('https://showroom.encoway-services.de/qaforsf/cxf/EmbeddedWebService;jsessionid=E6A53F98C9B19811AD239B32C10A1731', 'TEST_QA_SAVE_RESULT');
+        qaMock.setStatusCode(200);
+        qaMock.setHeader('Content-Type', 'text/xml');
+        Test.setMock(HttpCalloutMock.class, qaMock);
+        setCredentials();
+        Opportunity opp = createOpportunity();
+        EncQuote__c newQuoteForStdCtrl = createQuote(opp, true);
+        ApexPages.StandardController stdController = new ApexPages.StandardController(newQuoteForStdCtrl);
+        Test.startTest();
+        QAIntCtrl controller = new QAIntCtrl(stdController);
+        controller.save();
+        Test.stopTest();
+        EncQuote__c quote = QuoteManager.getQuoteById(newQuoteForStdCtrl.Id);
+        System.assertEquals(523792.00, quote.SubTotal__c);
+        System.assertEquals(523792.00, quote.GrandTotal__c);
+        System.assertEquals(0, quote.Discount__c);
+        System.assertEquals(0, quote.Tax__c);
+        System.assertEquals(true, quote.isCreatedInQA__c);
+        List<EncLineItem__c> lineItems = QuoteManager.loadLineItems(quote);
+        System.assertEquals(30, lineItems.size());
+        System.assertEquals(true, lineItems[0].IsArticle__c);
+        System.assertEquals('ENC200', lineItems[0].ProductNumber__c);
+        System.assertEquals('1434449957912', lineItems[0].EncowayId__c);
+        System.assertEquals(523792.00, lineItems[0].newDiscountedPositionPrice__c);
+        System.assertEquals(695152.00, lineItems[0].newMaximumPositionDiscount__c);
+        System.assertEquals(false, lineItems[0].isLeaf__c);
+        System.assertEquals(true, lineItems[0].configurable__c);
+    }
+-----------------------------------
+
+
