@@ -12,3 +12,9 @@ Quick Salesforce Setup
 Salesforce Lightning Restyler
 Better Salesforce formula editor
 Salesforce Id Paster
+column copy
+
+
+Lighning component : 
+http://www.lightningstrike.io/#!/strikeLookup
+
