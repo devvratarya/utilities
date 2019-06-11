@@ -1,0 +1,21 @@
+Hyperlink hack
+
+IF(
+  TEXT(ComEx_Category__r.Category__c) = 'All',
+  '',
+  HYPERLINK(
+    '/' + 
+    IF(
+      ISBLANK(Account_Plan__c),
+      'apex/AccountPlanCreation?acc=' + Account__c + '&comexcat=' + ComEx_Category__c + '&comexcatname=' + ComEx_Category__r.Name,
+      Account_Plan__c
+    ),
+    IF(
+      ISBLANK(Account_Plan__c),
+      $Label.LINK_New_Account_Plan,
+      Account_Plan__r.Name
+    ),
+    '_top'
+  ) 
+)
+
