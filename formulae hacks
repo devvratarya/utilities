@@ -19,3 +19,16 @@ IF(
   ) 
 )
 
+
+
+Image
+IMAGE( 
+IF ( 
+CloseDate < TODAY() && NOT(IsClosed), 
+"/img/samples/light_red.gif", 
+IF (
+CloseDate < (TODAY()+14) && NOT(IsClosed),
+"/img/samples/light_yellow.gif", 
+IF(
+ISPICKVAL(StageName, "Lost"), 
+"/resource/status_img/status_img/light_gray.gif","/img/samples/light_green.gif"))),"Light")
